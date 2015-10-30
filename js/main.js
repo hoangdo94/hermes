@@ -184,7 +184,7 @@ var createTutor = function() {
         };
     });
 
-    if (!(username && email && pwd && pwdConf && tutor_center && qualification && subject[0] && location && quote && availabelTuition && phone && website && tutorAddress)) {
+    if (!(username && email && pwd && pwdConf && qualification && subject[0] && location && availabelTuition)) {
         alert('Please fill in all required fields!');
         return;
     }
