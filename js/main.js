@@ -37,6 +37,7 @@ var levels, subjects, tutorSubjects, schools, locations;
 var init = function() {
     //get levels
     var q = new Parse.Query(Parse.Object.extend('Levels'));
+    q.limit(1000);
     q.find(function(results) {
         levels = results;
         $('select#student-level').append('<option value="">Select Level</option');
@@ -48,6 +49,7 @@ var init = function() {
     });
     //get locations
     var q2 = new Parse.Query(Parse.Object.extend('Locations'));
+    q2.limit(1000);
     q2.ascending('name')
     q2.find(function(results) {
         locations = results;
@@ -239,6 +241,7 @@ $('#student-level').change(function() {
 
         //find subjects
         var query = new Parse.Query(Parse.Object.extend('Subjects'));
+        query.limit(1000);
         query.equalTo('level', level);
         query.ascending('name');
         query.find({
@@ -261,6 +264,7 @@ $('#student-level').change(function() {
 
         //find schools
         var query2 = new Parse.Query(Parse.Object.extend('Schools'));
+        query2.limit(1000);
         query2.equalTo('main_levels', mainLevel);
         query2.ascending('name');
         query2.find({
@@ -299,6 +303,7 @@ $('#tutor-sub-lvl').change(function() {
 
         //find subjects
         var query = new Parse.Query(Parse.Object.extend('Subjects'));
+        query.limit(1000);
         query.equalTo('level', level);
         query.ascending('name');
         query.find({
@@ -390,6 +395,7 @@ $('.tutor-add-subs').click(function() {
 
             //find subjects
             var query = new Parse.Query(Parse.Object.extend('Subjects'));
+            query.limit(1000);
             query.equalTo('level', level);
             query.ascending('name');
             query.find({
